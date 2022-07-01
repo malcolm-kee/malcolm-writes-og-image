@@ -5,8 +5,8 @@
   },
   "scripts": {
     "build": "yarn css:build && tsc -p web/tsconfig.json",
-    "css:dev": "tailwindcss -i ./input.css -o ./api/styles.css --watch",
-    "css:build": "tailwindcss -i ./input.css -o ./api/styles.css"
+    "css:dev": "tailwindcss -i ./input.css -o ./api/_static/styles.css --watch",
+    "css:build": "tailwindcss -i ./input.css -o ./api/_static/styles.css"
   },
   "dependencies": {
     "chrome-aws-lambda": "7.0.0",

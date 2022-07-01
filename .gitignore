@@ -3,4 +3,4 @@
 node_modules
 api/dist
 public/dist
-api/styles.css
+api/_static

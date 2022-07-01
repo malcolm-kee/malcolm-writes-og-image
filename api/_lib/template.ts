@@ -6,7 +6,7 @@ import { ParsedRequest } from './types';
 const twemoji = require('twemoji');
 const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
-const styles = readFileSync(`${__dirname}/../styles.css`, 'utf-8');
+const styles = readFileSync(`${__dirname}/../_static/styles.css`, 'utf-8');
 
 export function getHtml(parsedReq: ParsedRequest) {
     const { text, md, date } = parsedReq;
