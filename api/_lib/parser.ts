@@ -5,13 +5,16 @@ import { ParsedRequest, Theme } from './types';
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { fontSize, images, widths, heights, theme, md } = (query || {});
+    const { fontSize, images, widths, heights, theme, md, date } = (query || {});
 
     if (Array.isArray(fontSize)) {
         throw new Error('Expected a single fontSize');
     }
     if (Array.isArray(theme)) {
         throw new Error('Expected a single theme');
+    }
+    if (Array.isArray(date)) {
+        throw new Error('Expected a single date');
     }
     
     const arr = (pathname || '/').slice(1).split('.');
@@ -32,6 +35,7 @@ export function parseRequest(req: IncomingMessage) {
         theme: theme === 'dark' ? 'dark' : 'light',
         md: md === '1' || md === 'true',
         fontSize: fontSize || '96px',
+        date: date || '',
         images: getArray(images),
         widths: getArray(widths),
         heights: getArray(heights),
